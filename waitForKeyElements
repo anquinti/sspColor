@@ -32,12 +32,6 @@ function waitForKeyElements (
 {
     var targetNodes, btargetsFound;
 
-    if (typeof iframeSelector == "undefined")
-        targetNodes     = $(selectorTxt);
-    else
-        targetNodes     = $(iframeSelector).contents ()
-                                           .find (selectorTxt);
-
     if (targetNodes  &&  targetNodes.length > 0) {
         btargetsFound   = true;
         /*--- Found target node(s).  Go through each and act if they
@@ -78,8 +72,7 @@ function waitForKeyElements (
             timeControl = setInterval ( function () {
                     waitForKeyElements (    selectorTxt,
                                             actionFunction,
-                                            bWaitOnce,
-                                            iframeSelector
+                                            bWaitOnce
                                         );
                 },
                 300
